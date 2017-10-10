@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
+use App\Tag;
 use App\Post;
 
 class PageController extends Controller
@@ -17,11 +18,21 @@ class PageController extends Controller
     }
 
     public function category($slug){
-    	//filtro por categoria
+        $category = Category::where('slug', $slug)->pluck('id')->first();
+
+        $posts = Post::where('category_id', $category)
+            ->orderBy('id', 'DESC')->paginate(3);
+
+        return view('web.posts', compact('posts'));
     }
 
-    public function tag($slug){
-    	//filtro por etiqueta
+    public function tag($slug){ 
+        $posts = Post::whereHas('tags', function($query) use ($slug) {
+            $query->where('slug', $slug);
+        })
+        ->orderBy('id', 'DESC')->paginate(3);
+
+        return view('web.posts', compact('posts'));
     }
 
     public function post($slug){
