@@ -16,6 +16,10 @@
                 </div>
 
                 <div class="panel-body">
+                    @if($post->file)
+                        <img src="{{ $post->file }}" class="img-responsive">
+                    @endif
+                    
                     {{ $post->excerpt }}
                     <hr>
                     {{ $post->body }}
