@@ -22,7 +22,7 @@
                     
                     {{ $post->excerpt }}
                     <hr>
-                    {{ $post->body }}
+                    {!! $post->body !!}
                     <hr>
 
                     Etiquetas

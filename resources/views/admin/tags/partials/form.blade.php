@@ -11,8 +11,8 @@
 </div>
 
 @section('scripts')
-<script type="text/javascript" src="{{ asset('js/jquery.stringtoslug.min.js') }}"></script>
-<script type="text/javascript">
+<script src="{{ asset('vendor/stringToSlug/jquery.stringToSlug.min.js') }}"></script>
+<script>
 	$(document).ready(function(){
 	    $("#name, #slug").stringToSlug({
 	        callback: function(text){
