@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Plataforma de Capacitacion de Salud</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -28,27 +28,25 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="#" style="padding:0px">
+                        <img src="{{ url('img/logo.png') }}" style="width:150px;height:50px">
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('blog') }}">Blog</a></li>
+                        <li><a href="{{ route('blog') }}">Inicio</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Ingresar</a></li>
+                            <li><a href="{{ route('register') }}">Registar</a></li>
                         @else
-                            <li><a href="{{ route('tags.index') }}">Etiquetas</a></li>
-                            <li><a href="{{ route('categories.index') }}">Categorías</a></li>
-                            <li><a href="{{ route('posts.index') }}">Entradas</a></li>                            
+                            <li><a href="{{ route('posts.index') }}">Inscripcion</a></li>                            
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>

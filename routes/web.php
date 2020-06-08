@@ -26,3 +26,11 @@ Route::get('/tag/{slug}', 'Web\PageController@tag')->name('tag');
 Route::resource('tags', 		'Admin\TagController');
 Route::resource('categories', 	'Admin\CategoryController');
 Route::resource('posts', 		'Admin\PostController');
+
+Route::get('/capacitacion','Admin\CapacitacionController@index')->name('capacitacion');
+
+Route::get('/alumno','Admin\AlumnoController@index')->name('alumno');
+
+Route::post('/evaluacion','Admin\EvaluacionController@index')->name('evaluacion');
+Route::get('/detalle_evaluacion','Admin\EvaluacionController@show')->name('detalle_evaluacion');
+Route::get('/guardar_evaluacion','Admin\EvaluacionController@store')->name('guardar_evaluacion');
