@@ -405,7 +405,6 @@
 															<option>Servicio especial - taxi</option>
 															<option>Servicio de autos colectivos</option>
 															<option>Mototaxista</option>
-															<option>Mototaxista</option>
 															<option>Servicio Regular</option>
 															<option>Servicio Turistico</option>
 											</select>
