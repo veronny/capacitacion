@@ -388,7 +388,7 @@
 	<div class="col col-md-12">
 			<div class="panel panel-primary">
 			<!-- Default panel contents -->
-					<div class="panel-heading text-center">SERVICIOS DE TRANSPORTES</div>             
+					<div class="panel-heading text-center"><strong>SERVICIO DE TRANSPORTES</strong></div>             
 											<!----- empresa_trans ----->
 									<div class="form-row">
 											<div class="form-group col-md-6">
@@ -405,6 +405,9 @@
 															<option>Servicio especial - taxi</option>
 															<option>Servicio de autos colectivos</option>
 															<option>Mototaxista</option>
+															<option>Mototaxista</option>
+															<option>Servicio Regular</option>
+															<option>Servicio Turistico</option>
 											</select>
 											</div>
 									</div>

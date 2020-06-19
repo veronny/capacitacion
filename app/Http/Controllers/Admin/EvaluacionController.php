@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Alumno;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Http\Controllers\Auth;
 use App\QuestionOption;
 use App\Question;
+use App\Result;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\EvaluacionRequest;
+use App\User;
 
 class EvaluacionController extends Controller
 {
@@ -32,46 +36,39 @@ class EvaluacionController extends Controller
 
     public function show(Request $request)
     {
-
-        $questions = Question::inRandomOrder()->limit(10)->get();
-        foreach ($questions as &$question) {
-            $question->options = QuestionOption::where('question_id', $question->id)->inRandomOrder()->get();
-        }
-        return view('admin.evaluacion.show',compact('questions'));
-
+       
+        return view('admin.evaluacion.show');
     }
 
     public function store(Request $request)
     {
+       
+        $validatedData = $request->validate([
 
-        $result = 0;
-
-        $test = Test::create([
-            'user_id' => Auth::id(),
-            'result'  => $result,
+            'opcion1' => 'nullable',
+            'opcion2' => 'nullable',
+            'opcion3' => 'nullable',
+            'opcion4' => 'nullable',
+            'opcion5' => 'nullable',
+            'opcion6' => 'nullable',
+            'opcion7' => 'nullable',
+            'opcion8' => 'nullable',
+            'opcion9' => 'nullable',
+            'opcion10' => 'nullable',
+            'id' => 'nullable',
+            'user_id'=> 'nullable',
+            'dni' => 'nullable',
+            'nombre' => 'nullable',
+            'apellido_paterno'=> 'nullable',
+            'apellido_materno'=> 'nullable',
+            
         ]);
+      
+        $nota = Result::create($validatedData);
 
-        foreach ($request->input('questions', []) as $key => $question) {
-            $status = 0;
-
-            if ($request->input('answers.'.$question) != null
-                && QuestionsOption::find($request->input('answers.'.$question))->correct
-            ) {
-                $status = 1;
-                $result++;
-            }
-            TestAnswer::create([
-                'user_id'     => Auth::id(),
-                'test_id'     => $test->id,
-                'question_id' => $question,
-                'option_id'   => $request->input('answers.'.$question),
-                'correct'     => $status,
-            ]);
-        }
-
-        $test->update(['result' => $result]);
-
-        return redirect()->route('results.show', [$test->id]);
-
+      //  return view('admin.evaluacion.resultado', compact('nota','notas'))->withErrors(['field_name' => ['Examen enviado correctamente']]);
+        return redirect()->route('resultados')->withErrors(['field_name' => ['Examen enviado correctamente']]);;
     }
+
+        
 }

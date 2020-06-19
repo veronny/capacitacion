@@ -6,7 +6,22 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">Ingresar al modulo evaluacion</div>
-
+                
+                <div class="alert alert-warning col-md-10 col-md-offset-1" role="alert">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            Son <strong>10 Preguntas</strong> y solo puedes seleccionar una
+                        </div>
+                        <div class="col-md-4 text-center">
+                            El DNI y el numero de ficha se encuentra en la <strong>Ficha de incripcion</strong>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            La <strong>nota minima</strong> para la emision de la constancia es <strong>14</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('evaluacion') }}">
                         {{ csrf_field() }}

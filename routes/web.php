@@ -34,3 +34,8 @@ Route::get('/alumno','Admin\AlumnoController@index')->name('alumno');
 Route::post('/evaluacion','Admin\EvaluacionController@index')->name('evaluacion');
 Route::get('/detalle_evaluacion','Admin\EvaluacionController@show')->name('detalle_evaluacion');
 Route::get('/guardar_evaluacion','Admin\EvaluacionController@store')->name('guardar_evaluacion');
+
+//Route::resource('/resultadoscontroller', 'ResultadosController');
+
+Route::get('resultados','Admin\ResultadosController@index')->name('resultados');
+Route::get('certificado/{id}','Admin\ResultadosController@show')->name('certificado');

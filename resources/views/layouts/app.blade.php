@@ -36,15 +36,15 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('blog') }}">Inicio</a></li>
+                        <li class="active"><a href="{{ route('blog') }}">Inicio</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Ingresar</a></li>
-                            <li><a href="{{ route('register') }}">Registar</a></li>
+                            <li><a href="{{ route('login') }}">Ingresar Empresa</a></li>
+                            <li><a href="{{ route('register') }}">Registar Empresa</a></li>
                         @else
                             <li><a href="{{ route('posts.index') }}">Inscripcion</a></li>                            
                             <li class="dropdown">

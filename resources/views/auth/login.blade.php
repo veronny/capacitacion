@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
-                <div class="panel-heading">Ingresar al sistema</div>
+                <div class="panel-heading">INGRESAR AL SISTEMA COMO <strong>EMPRESA</strong></div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
